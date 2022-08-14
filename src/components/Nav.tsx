@@ -5,24 +5,32 @@ import { theme } from 'styles/theme'
 import MenuModal from './MenuModal'
 
 const Nav = () => {
-  const [menuToggle, setMenuToggle] = useState<boolean>(false)
+  const [isOpen, setIsOpen] = useState(false)
 
-  const menuHandle = (e: React.MouseEvent<SVGAElement>) => {
-    setMenuToggle(!menuToggle)
-    e.preventDefault()
-    console.log(menuToggle)
+  const handleModalOpen = () => {
+    setIsOpen(true)
   }
+
+  const handleModalClose = () => {
+    setIsOpen(false)
+  }
+
+  // const closeBox = (e: React.MouseEvent<HTMLDivElement>) => {
+  //   setMenuToggle(false)
+  //   console.log('close')
+  // }
+
+  if (window.location.pathname === '/') return null
   return (
     <NavPage>
       <NavBox>
         <NavLogo>Wemory</NavLogo>
         <MenuBox>
           <Login>로그인</Login>
-          <Logout>로그아웃</Logout>
-          <Menu onClick={menuHandle}></Menu>
+          <Menu onClick={handleModalOpen}></Menu>
         </MenuBox>
+        <MenuModal visible={isOpen} onClose={handleModalClose}></MenuModal>
       </NavBox>
-      {menuToggle && <MenuModal menuToggle={menuToggle} />}
     </NavPage>
   )
 }
@@ -43,10 +51,14 @@ const MenuBox = styled.div`
   ${({ theme }) => theme.flexMixIn('space-around', 'center')}
 `
 const Login = styled.div`
+  font-size: 0.9rem;
+  ${({ theme }) => theme.media.mobile`
+    font-size:0.7rem;
+  `}
   font-weight: bold;
 `
-const Logout = styled(Login)``
 const Menu = styled(AiOutlineMenu)`
-  font-size: 28px;
+  font-size: 1.2rem;
 `
+
 export default Nav

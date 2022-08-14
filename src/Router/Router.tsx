@@ -1,9 +1,8 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import Rendering from './Rendering/Rendering'
-import Nav from './components/Nav'
-import Main from './Main/Main'
-import Mypage from './Mypage/Mypage'
-import MenuModal from 'components/MenuModal'
+import Rendering from '../Rendering/Rendering'
+import Main from '../Main/Main'
+import Mypage from '../Mypage/Mypage'
+import Nav from '../components/Nav'
 
 const Router = () => {
   return (
