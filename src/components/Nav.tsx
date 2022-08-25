@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
+import { useNavigate } from 'react-router-dom'
 import { AiOutlineMenu } from 'react-icons/ai'
 import { theme } from 'styles/theme'
 import MenuModal from './MenuModal'
@@ -15,6 +16,12 @@ const Nav = () => {
     setIsOpen(false)
   }
 
+  const navigate = useNavigate()
+
+  const mainNavigate = () => {
+    navigate('/main')
+  }
+
   // const closeBox = (e: React.MouseEvent<HTMLDivElement>) => {
   //   setMenuToggle(false)
   //   console.log('close')
@@ -24,7 +31,7 @@ const Nav = () => {
   return (
     <NavPage>
       <NavBox>
-        <NavLogo>Wemory</NavLogo>
+        <NavLogo onClick={mainNavigate}>Wemory</NavLogo>
         <MenuBox>
           <Login>로그인</Login>
           <Menu onClick={handleModalOpen}></Menu>
@@ -44,7 +51,9 @@ const NavBox = styled.div`
   ${({ theme }) => theme.flexMixIn('space-between', 'center')}
   border-bottom: 3px solid gray;
 `
-const NavLogo = styled.h1``
+const NavLogo = styled.h1`
+  cursor: pointer;
+`
 
 const MenuBox = styled.div`
   width: 20%;
