@@ -21,7 +21,7 @@ const MenuModal = ({ visible, onClose }: ModalBaseProps) => {
     <>
       <Background visible={visible} onClick={onClose} />
       <ModalSection visible={visible}>
-        <Content onClick={mygisuNavigate}>내 기수로 가기</Content>
+        <Content onClick={mygisuNavigate}>내 기수 PAGE</Content>
         <Content onClick={myPageNavigate}>MY PAGE</Content>
         <Content>로그아웃</Content>
       </ModalSection>
@@ -87,14 +87,17 @@ const Content = styled.div`
   padding: 16px 0;
   font-weight: bold;
   ${({ theme }) => theme.media.desktop`
-    font-size:20px;
+    font-size:13px;
+    font-weight: bold;
   `}
    ${({ theme }) => theme.media.tablet`
-    font-size:12px;
+    font-size: 11px;
+    font-weight: bold;
   `}
    ${({ theme }) => theme.media.mobile`
     padding : 10px 0;
-    font-size:10px;
+    font-size:7px;
+    font-weight: bold;
   `}
   cursor: pointer;
 `
