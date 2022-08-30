@@ -22,11 +22,6 @@ const Nav = () => {
     navigate('/main')
   }
 
-  // const closeBox = (e: React.MouseEvent<HTMLDivElement>) => {
-  //   setMenuToggle(false)
-  //   console.log('close')
-  // }
-
   if (window.location.pathname === '/') return null
   return (
     <NavPage>

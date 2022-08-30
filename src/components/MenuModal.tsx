@@ -1,13 +1,9 @@
 import React from 'react'
 import styled, { css, keyframes } from 'styled-components'
 import { useNavigate } from 'react-router'
-import { AiOutlineClose } from 'react-icons/ai'
 
 export type ModalBaseProps = {
-  /** 모달에 들어갈 컴포넌트 */
-  /** 모달 창 생성 여부를 컨트롤할 변수 */
   visible: boolean
-  /** 닫기 버튼 혹은 백그라운드 클릭 시 실행할 함수 */
   onClose: () => void
 }
 
@@ -25,7 +21,6 @@ const MenuModal = ({ visible, onClose }: ModalBaseProps) => {
     <>
       <Background visible={visible} onClick={onClose} />
       <ModalSection visible={visible}>
-        <Title>{/* <CloseButton onClick={onClose} /> */}</Title>
         <Content onClick={mygisuNavigate}>내 기수로 가기</Content>
         <Content onClick={myPageNavigate}>MY PAGE</Content>
         <Content>로그아웃</Content>
@@ -39,11 +34,9 @@ const fadeIn = keyframes`
 		transform: scaleX(0) scaleY(0.005);
 	}
 	50% {
-		/* 0.5 초간 세로 크기는 작은상태로 가로 너비만 확대  */
 		transform: scaleX(1) scaleY(0.005);
 	}
 	100% {
-		/* 0.5 초간 세로 크기를 확대 */
 		transform: scaleY(1) scaleX(1);
 	}
 `
@@ -90,11 +83,6 @@ const ModalSection = styled.div<{ visible: boolean }>`
   ${(props) => modalSettings(props.visible)}
 `
 
-const Title = styled.div`
-  display: flex;
-  justify-content: flex-end;
-`
-
 const Content = styled.div`
   padding: 16px 0;
   font-weight: bold;
@@ -110,12 +98,5 @@ const Content = styled.div`
   `}
   cursor: pointer;
 `
-
-// const CloseButton = styled(AiOutlineClose)`
-//   border: none;
-//   background: none;
-//   font-weight: bold;
-//   cursor: pointer;
-// `
 
 export default MenuModal
