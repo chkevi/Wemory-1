@@ -2,11 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 const Main = () => {
-  return (
-    <div>
-      <Test>Main</Test>
-    </div>
-  )
+  return <Test>Main</Test>
 }
 
 const Test = styled.h1`
